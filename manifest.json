@@ -20,7 +20,7 @@
 	},
 	"browser_action":
 	{
-		"default_icon": "gmail_not_logged_in.png",
+		"default_icon": "icon_not_logged_in.png",
 		"default_title": "Inbox"
 	},
 	"icons":

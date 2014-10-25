@@ -14,13 +14,13 @@ function updateIcon( count )
 {
 	if( count )
 	{
-		chrome.browserAction.setIcon( { path: 'gmail_logged_in.png' } );
+		chrome.browserAction.setIcon( { path: 'icon_logged_in.png' } );
 		chrome.browserAction.setBadgeBackgroundColor( { color: [ 66, 133, 244, 255 ] } );
 		chrome.browserAction.setBadgeText( { text: count != '0' ? count : '' } );
 	}
 	else
 	{
-		chrome.browserAction.setIcon( { path: 'gmail_not_logged_in.png' } );
+		chrome.browserAction.setIcon( { path: 'icon_not_logged_in.png' } );
 		chrome.browserAction.setBadgeBackgroundColor( { color: [ 137, 137, 132, 230 ] } );
 		chrome.browserAction.setBadgeText( { text: '?' } );
 	}
