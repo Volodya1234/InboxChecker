@@ -6,9 +6,12 @@
 	"permissions":
 	[
 		"alarms",
+		"notifications",
+		"storage",
 		"webNavigation",
 		"https://mail.google.com/",
-		"https://inbox.google.com/"
+		"https://inbox.google.com/",
+		"https://www.gravatar.com/avatar/"
 	],
 	"background":
 	{
