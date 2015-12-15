@@ -94,8 +94,8 @@ function startRequest()
 					
 					if( author )
 					{
-						email = getXMLNode( author, 'email' );
-						name = getXMLNode( author, 'name' );
+						email = getXMLNode( author[ 0 ], 'email' );
+						name = getXMLNode( author[ 0 ], 'name' );
 					}
 					
 					chrome.notifications.create( getXMLNode( entry, 'id' ),
@@ -103,7 +103,7 @@ function startRequest()
 						type: 'basic',
 						title: getXMLNode( entry, 'title' ),
 						message: getXMLNode( entry, 'summary' ),
-						iconUrl: 'https://www.gravatar.com/avatar/' + md5( entry.author.email ) + '?s=200&default=identicon',
+						iconUrl: 'https://www.gravatar.com/avatar/' + md5( email ) + '?s=200&default=identicon',
 						contextMessage: 'New Email from ' + name + ' (' + email + ')',
 						eventTime: date
 					} );
