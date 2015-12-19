@@ -41,7 +41,22 @@ function getXMLNode( node, tagName )
 
 function openInbox()
 {
-	chrome.tabs.create( { url: 'https://inbox.google.com/' } );
+	chrome.tabs.getAllInWindow( undefined, function( tabs )
+	{
+		for( var i = 0, tab; i < tabs.length; i++ )
+		{
+			tab = tabs[ i ];
+			
+			if( tab.url && tab.url.indexOf( 'https://inbox.google.com' ) > -1 )
+			{
+				chrome.tabs.update( tab.id, { selected: true } );
+				
+				return;
+			}
+		}
+		
+		chrome.tabs.create( { url: 'https://inbox.google.com/' } );
+	} );
 }
 
 function openNotification( notificationId )
