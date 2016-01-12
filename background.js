@@ -33,7 +33,12 @@ function getXMLNode( node, tagName )
 	
 	if( value )
 	{
-		return value[ 0 ].childNodes[ 0 ].nodeValue;
+		value = value[ 0 ];
+		
+		if( value.firstChild )
+		{
+			return value.firstChild.nodeValue;
+		}
 	}
 	
 	return null;
@@ -116,7 +121,7 @@ function startRequest()
 					chrome.notifications.create( getXMLNode( entry, 'id' ),
 					{
 						type: 'basic',
-						title: getXMLNode( entry, 'title' ),
+						title: getXMLNode( entry, 'title' ) || 'New Email',
 						message: getXMLNode( entry, 'summary' ),
 						iconUrl: 'https://www.gravatar.com/avatar/' + md5( email ) + '?s=200&default=identicon',
 						contextMessage: 'New Email from ' + name + ' (' + email + ')',
