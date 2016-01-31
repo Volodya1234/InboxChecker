@@ -119,6 +119,7 @@ function startRequest( doNotShowNotification )
 						type: 'basic',
 						title: getXMLNode( entry, 'title' ) || 'New Email',
 						message: getXMLNode( entry, 'summary' ),
+						appIconMaskUrl: 'icon_mail_mask.png',
 						iconUrl: 'https://www.gravatar.com/avatar/' + md5( email ) + '?s=200&default=identicon',
 						contextMessage: 'New Email from ' + name + ' (' + email + ')',
 						eventTime: date
