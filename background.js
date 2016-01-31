@@ -62,6 +62,8 @@ function openInbox()
 		
 		chrome.tabs.create( { url: 'https://inbox.google.com/' } );
 	} );
+	
+	startRequest( true );
 }
 
 function openNotification( notificationId )
@@ -71,7 +73,7 @@ function openNotification( notificationId )
 	openInbox();
 }
 
-function startRequest()
+function startRequest( doNotShowNotification )
 {
 	var xhr = new XMLHttpRequest();
 	
@@ -106,6 +108,11 @@ function startRequest()
 					if( lastMessage < date )
 					{
 						lastMessage = date;
+					}
+					
+					if( doNotShowNotification )
+					{
+						continue;
 					}
 					
 					var name;
